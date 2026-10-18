@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bishan Tamang — Backend Engineer</title>
-<meta name="description" content="Portfolio of Alex Rivera, a backend engineer building APIs and services that scale.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Bishan Tamang — Golang Backend Developer</title>
+<meta name="description" content="Portfolio of Bishan Tamang, a Golang Backend Developer based in Lalitpur, Nepal.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -424,17 +424,57 @@
   .copyright{ font-family: var(--mono); font-size: 12px; color: var(--muted); }
 
   /* ---------- Responsive ---------- */
-  @media (max-width: 780px){
-    .hero-grid{ grid-template-columns: 1fr; gap: 36px; }
-    .stack-grid{ grid-template-columns: 1fr; }
-    .project-grid{ grid-template-columns: 1fr; }
-    .exp-item{ grid-template-columns: 40px 1fr; }
-    .contact-card{ flex-direction: column; align-items: flex-start; }
+  .hero-grid > *, .stack-grid > *, .project-grid > *,
+  .contact-card > *, .contact-links{ min-width: 0; }
+  h1, h2, h3, .project-desc{ overflow-wrap: anywhere; }
+  .contact-links{ max-width: 100%; }
+  .contact-links a{ min-height: 44px; }
+  .contact-links a span{ min-width: 0; overflow-wrap: anywhere; }
+  .btn{ min-height: 44px; justify-content: center; }
+  .nav-links a{ display: inline-flex; align-items: center; min-height: 44px; }
+  .api-card{ max-width: 100%; }
+  .api-bar{ flex-wrap: wrap; gap: 8px; }
+  .api-body pre{ font-family: inherit; font-size: inherit; }
+  .pill, .project-tags span{ max-width: 100%; overflow-wrap: anywhere; }
+
+  @media (max-width: 960px){
+    .hero-grid{ grid-template-columns: minmax(0, 1fr); gap: 32px; }
+    .hero-sub{ max-width: 60ch; }
+    .project-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
   }
-  @media (max-width: 480px){
-    .hero{ padding: 48px 0 40px; }
-    section{ padding: 48px 0; }
-    .api-body{ font-size: 12px; }
+  @media (max-width: 640px){
+    html{ scroll-padding-top: 140px; }
+    .wrap{ padding-left: max(20px, env(safe-area-inset-left)); padding-right: max(20px, env(safe-area-inset-right)); }
+    .nav-inner{ padding: 10px 20px; flex-direction: column; align-items: flex-start; gap: 4px; }
+    .nav-links{ width: 100%; min-width: 0; flex-wrap: wrap; overflow: visible; gap: 0; }
+    .nav-links a{ padding: 8px; font-size: 12px; }
+    .hero{ padding: 40px 0; }
+    .hero h1{ font-size: clamp(26px, 7vw, 38px); line-height: 1.25; }
+    .hero-sub{ font-size: 16px; }
+    section{ padding: 44px 0; }
+    .section-head{ margin-bottom: 24px; }
+    .section-title{ font-size: 21px; }
+    .stack-grid, .project-grid{ grid-template-columns: minmax(0, 1fr); gap: 24px; }
+    .api-body{ font-size: 12px; padding: 16px 12px; }
+    .api-bar{ padding: 12px; }
+    .contact-card{ flex-direction: column; align-items: stretch; padding: 22px 18px; gap: 18px; }
+    .contact-links{ width: 100%; }
+    .contact-links a{ font-size: 13px; }
+    .contact-text h3{ font-size: 18px; }
+    .footer-row{ align-items: flex-start; flex-direction: column; }
+    footer{ padding-bottom: max(28px, env(safe-area-inset-bottom)); }
+  }
+  @media (max-width: 360px){
+    .wrap{ padding-left: max(16px, env(safe-area-inset-left)); padding-right: max(16px, env(safe-area-inset-right)); }
+    .nav-inner{ padding-left: 16px; padding-right: 16px; }
+    .nav-links a{ font-size: 11px; padding-left: 6px; padding-right: 6px; }
+    .hero-cta{ flex-direction: column; }
+    .hero-cta .btn{ width: 100%; }
+    .project-card{ padding: 16px; }
+    .contact-card{ padding: 18px 14px; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    *, *::before, *::after{ animation: none !important; transition: none !important; }
   }
 </style>
 </head>
@@ -446,7 +486,6 @@
     <div class="nav-links">
       <a href="#about">/about</a>
       <a href="#stack">/stack</a>
-      <a href="#experience">/experience</a>
       <a href="#projects">/projects</a>
       <a href="#contact">/contact</a>
     </div>
@@ -456,16 +495,16 @@
 <header class="hero" id="top">
   <div class="wrap hero-grid">
     <div>
-      <p class="eyebrow">backend engineer</p>
-      <h1>I build APIs and services that <span class="accent">stay up</span> and scale predictably.</h1>
-      <p class="hero-sub">Six years designing backend systems — from payment pipelines to internal platforms — with a focus on reliability, clean data models, and code the next engineer can actually read.</p>
+      <p class="eyebrow">Golang Backend Developer</p>
+      <h1>Building backend APIs and services <span class="accent">with Go.</span></h1>
+      <p class="hero-sub">I’m Bishan Tamang, a Golang Backend Developer based in Lalitpur, Nepal. I’m focused on building REST APIs, working with databases, and writing clear, maintainable Go code.</p>
       <div class="hero-cta">
         <a class="btn btn-primary" href="#projects">View projects</a>
         <a class="btn btn-ghost" href="#contact">Get in touch</a>
       </div>
     </div>
 
-    <div class="api-card" role="img" aria-label="Mock API response describing Alex Rivera as a backend engineer, status 200 OK, available for hire">
+    <div class="api-card" role="img" aria-label="Mock API response describing Bishan Tamang as a Golang Backend Developer based in Lalitpur, Nepal">
       <div class="api-bar">
         <span><span class="api-method">GET</span> /developer</span>
         <span class="api-status"><span class="dot" aria-hidden="true"></span>200 OK</span>
@@ -473,12 +512,11 @@
       <div class="api-body">
 <pre>{
   <span class="jk">"name"</span><span class="jp">:</span> <span class="js">"Bishan Tamang"</span><span class="jp">,</span>
-  <span class="jk">"role"</span><span class="jp">:</span> <span class="js">"Backend Engineer"</span><span class="jp">,</span>
-  <span class="jk">"based_in"</span><span class="jp">:</span> <span class="js">"Remote (UTC+5:45)"</span><span class="jp">,</span>
-  <span class="jk">"focus"</span><span class="jp">:</span> <span class="jp">[</span><span class="js">"APIs"</span><span class="jp">,</span> <span class="js">"distributed systems"</span><span class="jp">,</span> <span class="js">"reliability"</span><span class="jp">],</span>
-  <span class="jk">"stack"</span><span class="jp">:</span> <span class="jp">[</span><span class="js">"Go"</span><span class="jp">,</span> <span class="js">"Python"</span><span class="jp">,</span> <span class="js">"PostgreSQL"</span><span class="jp">,</span><span class="jp">],</span>
-  <span class="jk">"status"</span><span class="jp">:</span> <span class="jv-status">"available for hire"</span><span class="jp">,</span>
-  <span class="jk">"response_time"</span><span class="jp">:</span> <span class="js">"&lt; 24h"</span>
+  <span class="jk">"role"</span><span class="jp">:</span> <span class="js">"Golang Backend Developer"</span><span class="jp">,</span>
+  <span class="jk">"based_in"</span><span class="jp">:</span> <span class="js">"Lalitpur, Nepal"</span><span class="jp">,</span>
+  <span class="jk">"focus"</span><span class="jp">:</span> <span class="jp">[</span><span class="js">"APIs"</span><span class="jp">,</span> <span class="js">"databases"</span><span class="jp">,</span> <span class="js">"Go fundamentals"</span><span class="jp">],</span>
+  <span class="jk">"stack"</span><span class="jp">:</span> <span class="jp">[</span><span class="js">"Go"</span><span class="jp">,</span> <span class="js">"PostgreSQL"</span><span class="jp">],</span>
+  <span class="jk">"status"</span><span class="jp">:</span> <span class="jv-status">"open to opportunities"</span>
 <span>}</span><span class="cursor" aria-hidden="true"></span></pre>
       </div>
     </div>
@@ -489,10 +527,10 @@
   <div class="wrap reveal">
     <div class="section-head">
       <p class="eyebrow">about</p>
-      <h2 class="section-title">Systems, not just endpoints</h2>
+      <h2 class="section-title">Learning by building</h2>
     </div>
-    <p class="about-text">I started out fixing slow SQL queries and ended up owning the services they belonged to. These days I work mostly on backend architecture — API design, data modeling, and the infrastructure that keeps everything running when traffic doesn't behave.</p>
-    <p class="about-text">I care about boring reliability: predictable deploys, clear error messages, dashboards that tell you the truth at 3 AM. Outside of work I contribute to a couple of open-source tooling projects and write occasional notes on distributed systems.</p>
+    <p class="about-text">I build backend projects with Go, connecting REST APIs, application logic, and PostgreSQL databases to create useful services.</p>
+    <p class="about-text">Through these projects, I’m improving my skills in writing readable code, validating requests, handling errors, and testing backend functionality.</p>
   </div>
 </section>
 
@@ -500,89 +538,44 @@
   <div class="wrap reveal">
     <div class="section-head">
       <p class="eyebrow">stack</p>
-      <h2 class="section-title">Tools I reach for</h2>
+      <h2 class="section-title">Tech Stack</h2>
     </div>
     <div class="stack-grid">
       <div class="stack-cat">
         <h3>Languages</h3>
         <div class="pill-row">
-          <span class="pill">Go</span><span class="pill">Python</span><span class="pill">SQL</span>
+          <span class="pill">Go</span><span class="pill">SQL</span>
         </div>
       </div>
       <div class="stack-cat">
-        <h3>Frameworks &amp; Runtime</h3>
+        <h3>Backend Frameworks</h3>
         <div class="pill-row">
-          <span class="pill">Gin</span><span class="pill">Django</span>
+          <span class="pill">Gin</span>
         </div>
       </div>
       <div class="stack-cat">
-        <h3>Data</h3>
+        <h3>Databases</h3>
         <div class="pill-row">
-          <span class="pill">PostgreSQL</span><span class="pill">MySQL</span>
+          <span class="pill">PostgreSQL</span>
         </div>
       </div>
       <div class="stack-cat">
-        <h3>Infrastructure</h3>
+        <h3>Tools &amp; Deployment</h3>
         <div class="pill-row">
-          <span class="pill">Docker</span>
+          <span class="pill">Docker</span><span class="pill">Git</span><span class="pill">GitHub</span>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-
-<section id="experience">
-  <div class="wrap reveal">
-    <div class="section-head">
-      <p class="eyebrow">experience</p>
-      <h2 class="section-title">Where I've worked</h2>
-    </div>
-
-    <div class="exp-item">
-      <div class="exp-index">[0]</div>
-      <div>
-        <div class="exp-head">
-          <span class="exp-role">Senior Backend Engineer <span class="exp-company">· Northwind Systems</span></span>
-          <span class="exp-dates">2023 — Present</span>
+      <div class="stack-cat">
+        <h3>APIs &amp; Web</h3>
+        <div class="pill-row">
+          <span class="pill">REST APIs</span><span class="pill">HTTP</span><span class="pill">JSON</span>
         </div>
-        <ul class="exp-list">
-          <li>Redesigned the payments service, cutting p95 latency from 210ms to 40ms</li>
-          <li>Split a monolith into services, reducing average deploy time by 70%</li>
-          <li>Led on-call rotation; brought incident MTTR down from 45 to 12 minutes</li>
-        </ul>
-        <div class="exp-tags"><span>Go</span><span>PostgreSQL</span><span>Kafka</span><span>Kubernetes</span></div>
       </div>
-    </div>
-
-    <div class="exp-item">
-      <div class="exp-index">[1]</div>
-      <div>
-        <div class="exp-head">
-          <span class="exp-role">Backend Engineer <span class="exp-company">· Fieldstone Labs</span></span>
-          <span class="exp-dates">2021 — 2023</span>
+      <div class="stack-cat">
+        <h3>Testing</h3>
+        <div class="pill-row">
+          <span class="pill">Go testing</span><span class="pill">API testing</span>
         </div>
-        <ul class="exp-list">
-          <li>Built the internal billing API, handling 2M+ requests a day</li>
-          <li>Introduced automated integration tests, catching regressions before prod</li>
-          <li>Designed a rate-limiting middleware later adopted by six services</li>
-        </ul>
-        <div class="exp-tags"><span>Python</span><span>FastAPI</span><span>Redis</span><span>Docker</span></div>
-      </div>
-    </div>
-
-    <div class="exp-item">
-      <div class="exp-index">[2]</div>
-      <div>
-        <div class="exp-head">
-          <span class="exp-role">Software Engineer, Backend <span class="exp-company">· Ashgrove Digital</span></span>
-          <span class="exp-dates">2019 — 2021</span>
-        </div>
-        <ul class="exp-list">
-          <li>Built REST APIs for a logistics platform serving 50k+ daily users</li>
-          <li>Optimized slow queries, cutting average database load by 35%</li>
-          <li>Set up CI/CD pipelines, moving releases from weekly to daily</li>
-        </ul>
-        <div class="exp-tags"><span>Node.js</span><span>MongoDB</span><span>Docker</span></div>
       </div>
     </div>
   </div>
@@ -592,36 +585,41 @@
   <div class="wrap reveal">
     <div class="section-head">
       <p class="eyebrow">projects</p>
-      <h2 class="section-title">Things I've built</h2>
+      <h2 class="section-title">Projects I’ve built</h2>
     </div>
+    <p class="about-text" style="margin-bottom: 24px;">Project details coming soon.</p>
     <div class="project-grid">
+      <!-- Replace the bracketed text with your project details. Add repository/demo links when available. -->
       <div class="project-card">
-        <h3 class="project-title">Ledger</h3>
-        <p class="project-desc">A distributed transaction ledger with idempotent writes and exactly-once processing for financial events.</p>
-        <span class="project-metric">2M events/day · p95 38ms</span>
-        <div class="project-tags"><span>Go</span><span>PostgreSQL</span><span>Kafka</span></div>
+        <h3 class="project-title">[Project 1 name]</h3>
+        <p class="project-desc">[Describe what this project does, who it helps, and the backend features you built.]</p>
+        <span class="project-metric">[Your contribution or a key feature]</span>
+        <div class="project-tags"><span>[Technology]</span><span>[Database]</span></div>
         <div class="project-links">
-          <a href="#">Code ↗</a>
-          <a href="#">Live ↗</a>
+          <!-- Add href="YOUR_REPOSITORY_URL" and remove aria-disabled when ready. -->
+          <a aria-disabled="true">GitHub repository (coming soon)</a>
         </div>
       </div>
+      <!-- Replace the bracketed text with your project details. Add repository/demo links when available. -->
       <div class="project-card">
-        <h3 class="project-title">Throttle</h3>
-        <p class="project-desc">A small rate-limiting library implementing token-bucket and sliding-window strategies for Node services.</p>
-        <span class="project-metric">Adopted by 6 internal services</span>
-        <div class="project-tags"><span>TypeScript</span><span>Redis</span></div>
+        <h3 class="project-title">[Project 2 name]</h3>
+        <p class="project-desc">[Describe what this project does, who it helps, and the backend features you built.]</p>
+        <span class="project-metric">[Your contribution or a key feature]</span>
+        <div class="project-tags"><span>[Technology]</span><span>[Database]</span></div>
         <div class="project-links">
-          <a href="#">Code ↗</a>
+          <!-- Add href="YOUR_REPOSITORY_URL" and remove aria-disabled when ready. -->
+          <a aria-disabled="true">GitHub repository (coming soon)</a>
         </div>
       </div>
+      <!-- Replace the bracketed text with your project details. Add repository/demo links when available. -->
       <div class="project-card">
-        <h3 class="project-title">Pulse</h3>
-        <p class="project-desc">A health-check aggregator and status page that watches uptime across a fleet of microservices.</p>
-        <span class="project-metric">99.98% uptime tracked</span>
-        <div class="project-tags"><span>Python</span><span>FastAPI</span><span>PostgreSQL</span></div>
+        <h3 class="project-title">[Project 3 name]</h3>
+        <p class="project-desc">[Describe what this project does, who it helps, and the backend features you built.]</p>
+        <span class="project-metric">[Your contribution or a key feature]</span>
+        <div class="project-tags"><span>[Technology]</span><span>[Database]</span></div>
         <div class="project-links">
-          <a href="#">Code ↗</a>
-          <a href="#">Live ↗</a>
+          <!-- Add href="YOUR_REPOSITORY_URL" and remove aria-disabled when ready. -->
+          <a aria-disabled="true">GitHub repository (coming soon)</a>
         </div>
       </div>
     </div>
@@ -636,21 +634,21 @@
     </div>
     <div class="contact-card">
       <div class="contact-text">
-        <h3>Open to new roles and interesting problems</h3>
-        <p>Best reached by email — I usually reply within a day.</p>
+        <h3>Open to internships and junior backend roles</h3>
+        <p>Looking for an opportunity to contribute, learn, and grow as a Golang developer. Get in touch by email or LinkedIn.</p>
       </div>
       <div class="contact-links">
         <a href="mailto:realbishantamang@gmail.com">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
-          realbishantamang@gmail.com
+          <span>realbishantamang@gmail.com</span>
         </a>
-        <a href="https://github.com/" target="_blank" rel="noopener">
+        <a href="https://github.com/bishan-tamang" target="_blank" rel="noopener">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>
-          github.com/alexrivera
+          <span>github.com/bishan-tamang</span>
         </a>
-        <a href="https://linkedin.com/" target="_blank" rel="noopener">
+        <a href="https://www.linkedin.com/in/tamangbishan" target="_blank" rel="noopener">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/><path d="M10 9h4v2a4 4 0 0 1 8 0v10h-4v-9a2 2 0 0 0-4 0v9h-4z"/></svg>
-          linkedin.com/in/alexrivera
+          <span>linkedin.com/in/tamangbishan</span>
         </a>
       </div>
     </div>
@@ -659,8 +657,8 @@
 
 <footer>
   <div class="wrap footer-row">
-    <span class="status-line"><span class="dot" aria-hidden="true"></span>GET /healthz → 200 OK</span>
-    <span class="copyright">© 2026 Alex Rivera</span>
+    <span class="status-line"><span class="dot" aria-hidden="true"></span>GET /health → 200 OK</span>
+    <span class="copyright">© 2026 Bishan Tamang</span>
   </div>
 </footer>
 
